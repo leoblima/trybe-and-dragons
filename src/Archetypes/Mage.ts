@@ -17,6 +17,10 @@ class Mage extends Archetype {
   get energyType(): EnergyType {
     return this._energyType;
   }
+
+  static createdArchetypeInstances(): number {
+    return Mage.totalCreated;
+  }
 }
 
 export default Mage;
