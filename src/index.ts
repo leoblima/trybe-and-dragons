@@ -1,14 +1,10 @@
-import { Dwarf } from './Races';
+import Archetype from './Archetypes/Archetype';
+import { EnergyType } from './Energy';
 
-const result = () => {
-  const r = [];
-  const d1 = new Dwarf('', 2);
-  r.push(Dwarf.createdRacesInstances());
-  const d2 = new Dwarf('', 2);
-  r.push(Dwarf.createdRacesInstances());
-  const d3 = new Dwarf('', 2);
-  r.push(Dwarf.createdRacesInstances());
-  return r;
-};
-
-console.log(result());
+class ArchetypeChild extends Archetype {
+  get energyType(): EnergyType {
+    throw new Error('Method not implemented.');
+  }
+}
+const archetype = new ArchetypeChild('ALoha');
+console.log(archetype.cost, archetype.name, archetype.special);
