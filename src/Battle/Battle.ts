@@ -1,10 +1,10 @@
 import Fighter from '../Fighter';
 
 abstract class Battle {
- constructor(protected player: Fighter) { }
+  constructor(protected player: Fighter) { }
 
   fight(): number {
-  return this.player.lifePoints === -1 ? -1 : 1;
+    return this.player.lifePoints === -1 ? -1 : 1;
   }
 }
- export default Battle;
+export default Battle;
