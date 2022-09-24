@@ -59,8 +59,8 @@ class Character implements Fighter {
   }
 
   get energy() {
-    const { type_, amount } = this._energy;
-    return { type_, amount };
+    const { amount } = this._energy;
+    return { type_: this._energy.type_, amount };
   }
 
   receiveDamage(attackPoints: number): number {
