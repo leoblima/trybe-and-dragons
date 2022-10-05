@@ -1,18 +1,18 @@
-import Fighter from '../Fighter';
+import Fighter, { SimpleFighter } from '../Fighter';
 import Battle from './Battle';
 
-class PVP extends Battle {
+class PVE extends Battle {
   private _player1: Fighter;
-  private _player2: Fighter;
+  private _monsters: Fighter[] | SimpleFighter[];
 
-  constructor(player1: Fighter, player2: Fighter) {
+  constructor(player1: Fighter, monsters: Fighter[] | SimpleFighter[]) {
     super(player1);
     this._player1 = player1;
-    this._player2 = player2;
+    this._monsters = monsters;
   }
 
   private round(): number {
-    this._player1.attack(this._player2);
+    this._player1.attack(this.player2);
     let result = this._player2.lifePoints;
     if (result <= 0) {
       return 1;
@@ -27,6 +27,8 @@ class PVP extends Battle {
 
   fight(): number {
     const MAX_LIFE_POINTS = 100;
+
+    
     for (let index = 0; index < MAX_LIFE_POINTS; index += 1) {
       const result = this.round();
       if (result !== 0) break;
